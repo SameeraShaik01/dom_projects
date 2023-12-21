@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- /* 9. Take an array of strings and create a dropdown using array values  the values  of dropdown should be taken dynamically and if we select a value in dropdown and the length of dropdown value is even it should show 1 in console or else if it is odd it should 0. */ -->
+<select>
+    
+</select>
+
+<script>
+var arr=["hi","hello","bye","tata"];
+arr.map((val)=>{
+    let opt=document.createElement("option")
+    opt.innerText=val
+    opt.addEventListener('select',()=>{
+        console.log()
+        if(val.length%2==0)
+        {
+            console.log("1")
+        }
+        else{
+            console.log("0")
+        }
+    })
+    let slct=document.getElementsByTagName("select")
+    slct[0].appendChild(opt)
+
+})
+
+    // let opt=document.createElement("option")
+    // opt.innerText=arr[i]
+    // opt.addEventListener('click',(e)=>{
+    //     console.log("hello")
+    //     e.preventDefault()
+    //     if(arr[i].length%2==0)
+    //     {
+    //         console.log("1")
+    //     }
+    //     else{
+    //         console.log("0")
+    //     }
+    // })
+    
+    // function hello(select)
+    // {
+    //     console.log("hello")
+    //     select.preventDefault()
+    //     if(arr[i].length%2==0)
+    //     {
+    //         console.log("1")
+    //     }
+    //     else{
+    //         console.log("0")
+    //     }
+    
+    // }
+    // let slct=document.getElementsByTagName("select")
+    // slct[0].appendChild(opt)
+
+</script>
+</body>
+</html>

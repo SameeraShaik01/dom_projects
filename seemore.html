@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         table{
+            width:100%
+        }
+        table,tr,th,td{
+            border:1px solid black;
+            border-collapse: collapse;
+            padding:10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let obj=JSON.parse(localStorage.getItem("product"))
+        let table= document.createElement("table")
+       document.body.append(table)
+        let tr=document.createElement("tr")
+         table.appendChild(tr)
+         let td1= document.createElement("td")
+         td1.innerHTML=obj.id
+            tr.appendChild(td1)
+         let td2=document.createElement("td")
+         td2.innerHTML=obj.title
+         tr.appendChild(td2)
+         let td3=document.createElement("img")
+         td3.setAttribute("src",obj.image)
+         td3.style.width="100px"
+         tr.appendChild(td3)
+    </script>
+</body>
+</html>
