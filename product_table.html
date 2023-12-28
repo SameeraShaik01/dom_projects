@@ -52,10 +52,10 @@
 "rate":4.7,
 "count":500
 }
-}];
+}];    
        let table= document.createElement("table")
        document.body.append(table)
-        let b=arr.map((val)=>
+        let b=arr.map((val,ind)=>
         {
          let tr=document.createElement("tr")
          table.appendChild(tr)
@@ -84,7 +84,24 @@
                   
       
         tr.appendChild(td4)
+        let btn1=document.createElement("button")
+        btn1.innerText="Add to cart"
+        btn1.addEventListener("click",(e)=>{
+            e.preventDefault()
+           let a = localStorage.getItem("item")
+           let b = a!==null?JSON.parse(a):[]
+          
+           b.push(arr[ind])
+           console.log(b)
+           localStorage.setItem("item",JSON.stringify(b))
+           window.location.assign('./addtocart.html')
         })
+     
+        let td5=document.createElement("td")
+        td5.appendChild(btn1)
+        tr.appendChild(td5)
+        })
+       
     </script>
 </body>
 </html>
