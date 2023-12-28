@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login_register</title>
+    <style>
+      #div1 {
+        height: 500px;
+        border: 1px solid gainsboro;
+        width: 500px;
+        margin: auto;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgb(128, 0, 0), rgb(255, 153, 0));
+        position: relative;
+      }
+      #div2 {
+        height: 300px;
+        width: 300px;
+        background-color: brown;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        margin: auto;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 4px 1px orange;
+      }
+      #btn1 {
+        border: none;
+        background-color: inherit;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 4px orange;
+        display: inline-block;
+        margin-top: 100px;
+        margin-left: 100px;
+      }
+      #btn2 {
+        border: none;
+        background-color: inherit;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+      #btn3 {
+        border: none;
+        background-color: inherit;
+        box-sizing: border-box;
+        display: inline-block;
+        margin-top: 50px;
+        margin-left: 120px;
+      }
+      input {
+        display: inline-block;
+        background-color: inherit;
+        border: none;
+        border-bottom: 1px solid black;
+        margin: 10px 60px;
+      }
+      #btn3:hover {
+        box-shadow: 1px 1px 4px orange;
+      }
+      #div3 {
+        visibility: hidden;
+      }
+      .submit {
+        border: none;
+        display: inline-block;
+        margin-left: 100px;
+      }
+      .submit:hover {
+        box-shadow: 1px 1px 4px orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <div id="div2">
+        <button id="btn1">Log In</button>
+        <button value="submit" id="btn2">Register</button>
+        <form>
+        <div id="hide">
+          <input placeholder="User name" />
+          <input placeholder="password" />
+          <input type="submit" class="submit" value="Go" />
+        </div>
+        </form>
+        <div id="div3">
+          <form id="form1">
+            <input placeholder=" Create User name" />
+            <input placeholder=" Create password" />
+            <input type="submit" id="sub" class="submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      let arr=[]
+      let c=document.getElementById("btn2")
+      let d=document.getElementById("hide")
+      let b=document.getElementById("div3")
+      c.addEventListener("click",(e)=>
+      {
+          e.preventDefault()
+          document.getElementById("btn1").style.boxShadow="none"
+          c.style.boxShadow="1px 1px 4px orange"
+          b.style.visibility="visible"
+          d.style.display="none"
+      })
+      let a=document.getElementById("btn1")
+      a.addEventListener("click",(e)=>
+      {
+          e.preventDefault()
+          d.style.display="block"
+          b.style.visibility="hidden"
+          a.style.boxShadow="1px 1px 4px orange"
+          c.style.boxShadow="none"
+      })
+      let formget=document.forms
+      formget[1].addEventListener("submit",(e)=>
+      {
+          e.preventDefault()
+
+          let obj={
+              username:e.target[0].value,
+              password:e.target[1].value
+          }
+
+         let q=localStorage.getItem("details")
+         if(q==null){
+         arr.push(obj)
+         console.log(arr)
+         localStorage.setItem("details",JSON.stringify(arr))
+         alert("You are registered successfully!")
+         }
+         if(q!=null)
+         {
+            arr.push(obj)
+            console.log(obj)
+            console.log(arr)
+          if(obj.username!=arr[0].username){
+              
+        console.log("hello")
+         localStorage.setItem("details",JSON.stringify(arr))
+         alert("You are registered successfully!")
+         }
+        }
+      })
+      formget[0].addEventListener("submit",(e)=>
+      {
+        e.preventDefault()
+        let obj1=
+        {
+            username:e.target[0].value,
+            password:e.target[1].value
+        }
+        let arr1=[]
+        let w=localStorage.getItem("details")
+        let v=JSON.parse(w)
+        arr1.push(v)
+        console.log(obj1.username)
+        console.log(arr1)
+        for(i=0;i<arr1.length;i++)
+       {
+       
+        if(obj1.username==arr1[i][i].username &&obj1.password==arr1[i][i].password)
+        {
+           
+            alert("logged in")
+        }
+        else if(obj1.username==arr1[i][i].username &&obj1.password!=arr1[i][i].password){
+            alert("Wrong password")
+        }
+        else{
+            alert("No account exists")
+        }
+       }
+      })
+      
+    </script>
+  </body>
+</html>

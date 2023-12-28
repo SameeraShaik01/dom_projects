@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+table{
+    width:100%
+}
+table,tr,th,td{
+    border:1px solid black;
+    border-collapse: collapse;
+    padding:10px;
+    text-align: center;
+}</style>
+<body>
+    <script>
+       
+        
+
+        let q=JSON.parse(localStorage.getItem("item"))
+        console.log(q)
+        let table= document.createElement("table")
+       document.body.append(table)
+        let b=q.map((val)=>
+        {
+         let tr=document.createElement("tr")
+         table.appendChild(tr)
+         let td1= document.createElement("td")
+         td1.innerHTML=val.id
+            tr.appendChild(td1)
+         let td2=document.createElement("td")
+         td2.innerHTML=val.title
+         tr.appendChild(td2)
+         let td3=document.createElement("img")
+         td3.setAttribute("src",val.image)
+         td3.style.width="100px"
+         tr.appendChild(td3)
+         let btn=document.createElement("button")
+         btn.innerText="see more"
+        btn.addEventListener("click",(e)=>{
+            if(confirm("routing to other page:"))
+            {
+            e.preventDefault()
+            localStorage.setItem('product',JSON.stringify(val))
+            window.location.assign('./seemore.html')
+            }
+        })
+         let td4=document.createElement("td")
+         td4.appendChild(btn)
+                  
+      
+        tr.appendChild(td4)
+        })
+    </script>
+</body>
+</html>
