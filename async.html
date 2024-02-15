@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //CALLBACK
+      // function one()
+      // {
+      //     return 1
+      // }
+      // function callback(a)
+      // {
+      //     return a()*2
+      // }
+      // console.log(callback(one))
+      //PROMISE
+      // let prom=new Promise((resolve,reject)=>
+      // {
+      //     resolve("resolve");
+      //     reject("reject");
+      // });
+      // prom.then(function(value){console.log(value)},function(error){console.log(error)});
+      //ASYNC/AWAIT
+      debugger;
+      async function fun() {
+        let prom = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let a = 0;
+            if (a == 1) {
+              reject("reject");
+
+            } else {
+              resolve("resolve");
+            }
+          }, 1000);
+        });
+        // console.log(await prom)
+
+        try {
+          console.log(await prom);
+        } catch (error) {
+          console.error(error); // from creation or business logic
+        }
+      }
+      //same as
+      //         function myFunction() {
+      //   return Promise.resolve("Hello");
+      // }
+      fun();
+    </script>
+  </body>
+</html>
